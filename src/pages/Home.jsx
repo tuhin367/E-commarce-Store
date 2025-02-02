@@ -5,6 +5,7 @@ import Bestseller from '../components/Bestseller.jsx'
 import Ourpolicy from '../components/Ourpolicy.jsx'
 import NewsletterBox from '../components/NewsletterBox.jsx'
 
+
 const Home = () => {
   return (
     <>
@@ -13,6 +14,7 @@ const Home = () => {
     <Bestseller/>
     <Ourpolicy/>
     <NewsletterBox/>
+    
     </>
     
   )

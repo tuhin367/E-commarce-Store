@@ -7,8 +7,9 @@ const Navbar = () => {
   return (
     <>
     <div className='my-2 flex justify-between  '>
-        <div>
+        <div><Link to={'/'}>
           <img src={assets.logo} className='w-36' alt="" />
+          </Link>
         </div>
 
          <div>
@@ -57,7 +58,7 @@ const Navbar = () => {
 
                 <img onClick={()=>setVisiable(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" />
                 
-                <div  className={`absolute top-0 left-[0] transition-all text-lg py-10 bg-white ${visiable ? 'w-full h-full' : 'w-0 text-[0]'}`}>
+                <div  className={`absolute top-0 left-[0] transition-all text-lg py-10 bg-white ${visiable ? 'w-full h-full' : 'hidden'}`}>
 
                     <div className=' flex flex-col text-gray-600] sm:hidden'>
                         <div onClick={()=>setVisiable(false)} className='flex items-center gap-4 p-3 cursor-pointer'>

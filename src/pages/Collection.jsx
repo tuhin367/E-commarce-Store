@@ -6,7 +6,7 @@ import { use } from 'react';
 
 const Collection = () => {
 
-const {product}=useContext(ShopContext);
+const {product, search,showSearch}=useContext(ShopContext);
 const[showFilter,setshowFilter] =useState(false);
 const [filterProducts,setfilterProducts]= useState([]);
 const [catagory,setcatagory]=useState([]);
@@ -35,6 +35,12 @@ const toggleSubCatagory =(event)=>{
 
 const applyFilter =()=>{
   let productCopy = products.slice();
+
+  if (showSearch && search) {
+
+    productCopy = productCopy.filter(item => item.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
+    
+  }
 
   if(catagory.length > 0){
     productCopy = productCopy.filter(item => catagory.includes(item.category));
@@ -72,7 +78,7 @@ useEffect(()=>{
 
 useEffect(()=>{
   applyFilter();
-},[catagory,Subcataory])
+},[catagory,Subcataory,search,showSearch])
 
 
 useEffect(()=>{

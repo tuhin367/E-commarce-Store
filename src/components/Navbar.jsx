@@ -5,7 +5,7 @@ import { ShopContext } from '../context/ShopContext';
 
 const Navbar = () => {
     const [visiable, setVisiable] =useState(false);
-     const {search,setSearch,showSearch,setShowsearch}=useContext(ShopContext)
+     const {search,setSearch,showSearch,setShowsearch,getCartCount}=useContext(ShopContext)
   return (
     <>
     <div className='my-2 flex justify-between  '>
@@ -55,12 +55,12 @@ const Navbar = () => {
 
                 <Link to='/Cart' className='relative'>
                 <img src={assets.cart_icon} className='w-5 min-w-5' alt="" />
-                <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-blue-950 text-white aspect-square  rounded-full text-[8px]'>10</p>
+                <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-blue-950 text-white aspect-square  rounded-full text-[8px]'>{getCartCount()}</p>
                 </Link>
 
                 <img onClick={()=>setVisiable(true)} src={assets.menu_icon} className='w-5 cursor-pointer sm:hidden' alt="" />
                 
-                <div  className={`absolute top-0 left-[0] transition-all text-lg py-10 bg-white ${visiable ? 'w-full h-full' : 'hidden'}`}>
+                <div  className={`absolute top-0 left-[0] transition-all text-lg py-10 bg-white ${visiable ? 'w-full h-full' : 'hidden'}  `}>
 
                     <div className=' flex flex-col text-gray-600] sm:hidden'>
                         <div onClick={()=>setVisiable(false)} className='flex items-center gap-4 p-3 cursor-pointer'>
